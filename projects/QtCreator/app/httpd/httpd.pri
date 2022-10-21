@@ -13,48 +13,48 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: http.pri
+#   File: httpd.pri
 #
 # Author: $author$
-#   Date: 9/13/2022
+#   Date: 10/21/2022
 #
-# generic QtCreator project .pri file for framework stara executable http
+# generic QtCreator project .pri file for framework stara executable httpd
 ########################################################################
 
 ########################################################################
-# http
+# httpd
 
-# http TARGET
+# httpd TARGET
 #
-http_TARGET = http
+httpd_TARGET = httpd
 
-# http INCLUDEPATH
+# httpd INCLUDEPATH
 #
-http_INCLUDEPATH += \
+httpd_INCLUDEPATH += \
 $${stara_INCLUDEPATH} \
 
-# http DEFINES
+# httpd DEFINES
 #
-http_DEFINES += \
+httpd_DEFINES += \
 $${stara_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
 XOS_CONSOLE_MAIN_MAIN \
 
 ########################################################################
-# http OBJECTIVE_HEADERS
+# httpd OBJECTIVE_HEADERS
 #
-#http_OBJECTIVE_HEADERS += \
-#$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/main.hh \
+#httpd_OBJECTIVE_HEADERS += \
+#$${STARA_SRC}/xos/app/console/httpd/main.hh \
 
-# http OBJECTIVE_SOURCES
+# httpd OBJECTIVE_SOURCES
 #
-#http_OBJECTIVE_SOURCES += \
-#$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/main.mm \
+#httpd_OBJECTIVE_SOURCES += \
+#$${STARA_SRC}/xos/app/console/httpd/main.mm \
 
 ########################################################################
-# http HEADERS
+# httpd HEADERS
 #
-http_HEADERS += \
+httpd_HEADERS += \
 $${RETE_SRC}/xos/network/sockets/interfaces.hpp \
 $${RETE_SRC}/xos/network/sockets/os/interfaces.hpp \
 \
@@ -92,29 +92,22 @@ $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/client/main_opt.hpp 
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/client/main.hpp \
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main_opt.hpp \
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main.hpp \
-\
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/base/main_opt.hpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/base/main.hpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main_opt.hpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main.hpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/server/main_opt.hpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/server/main.hpp \
 
-# http SOURCES
+# httpd SOURCES
 #
-http_SOURCES += \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main_opt.cpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main.cpp \
+httpd_SOURCES += \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main_opt.cpp \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main.cpp \
 
 ########################################################################
-# http FRAMEWORKS
+# httpd FRAMEWORKS
 #
-http_FRAMEWORKS += \
+httpd_FRAMEWORKS += \
 $${stara_FRAMEWORKS} \
 
-# http LIBS
+# httpd LIBS
 #
-http_LIBS += \
+httpd_LIBS += \
 $${stara_LIBS} \
 
 ########################################################################

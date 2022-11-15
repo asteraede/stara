@@ -260,6 +260,10 @@ protected:
         run_ = &derives::all_content_run;
         return err;
     }
+    virtual int content_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
     
     /// ...content_type_run
     virtual int content_type_run(int argc, char_t** argv, char_t** env) {
@@ -289,6 +293,10 @@ protected:
     virtual int set_content_type_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         run_ = &derives::all_content_type_run;
+        return err;
+    }
+    virtual int content_type_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
         return err;
     }
 
@@ -322,6 +330,10 @@ protected:
         run_ = &derives::all_content_encoding_run;
         return err;
     }
+    virtual int content_encoding_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
 
     /// ...option...
     virtual int on_set_content_option
@@ -348,11 +360,15 @@ protected:
             if (!(err = on_set_content_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_content_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_content_run(argc, argv, env))) {
+                        if (!(err = content_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_content_run(argc, argv, env))) {
+                if (!(err = content_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;
@@ -388,11 +404,15 @@ protected:
             if (!(err = on_set_content_type_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_content_type_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_content_type_run(argc, argv, env))) {
+                        if (!(err = content_type_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_content_type_run(argc, argv, env))) {
+                if (!(err = content_type_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;
@@ -428,11 +448,15 @@ protected:
             if (!(err = on_set_content_encoding_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_content_encoding_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_content_encoding_run(argc, argv, env))) {
+                        if (!(err = content_encoding_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_content_encoding_run(argc, argv, env))) {
+                if (!(err = content_encoding_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;

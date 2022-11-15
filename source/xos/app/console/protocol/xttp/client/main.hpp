@@ -445,6 +445,23 @@ protected:
     virtual request_resource_t& request_resource() const {
         return (request_resource_t&)resource_;
     }
+    virtual content_t& set_request_content(const string_t& to) {
+        size_t to_length = 0;
+        const char_t* to_chars = to.has_chars(to_length);
+        return set_request_content(to_chars, to_length);
+    }
+    virtual content_t& set_request_content(const char_t* to, size_t length) {
+        content_t& content = this->content();
+        if ((to) && (length)) {
+            request_line_t& request_line = this->request_line();
+            headers_t& headers = this->request_headers();
+            request_t& request = this->request();
+            headers.set_content_length(length);
+            content.set(to, length);
+            request.set(request_line, headers, content);
+        }
+        return content;
+    }
 
 protected:
     xos::protocol::http::request::method::nameof::GET get_;

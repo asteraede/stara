@@ -416,6 +416,13 @@ protected:
         content_length_header.set_length(this->content_length());
         return content;
     }
+    virtual content_t& set_content(const char_t* to, size_t length) {
+        content_length_header_t& content_length_header = this->content_length_header();
+        content_t& content = this->content();
+        content.set(to, length);
+        content_length_header.set_length(this->content_length());
+        return content;
+    }
     virtual content_t& content() const {
         return (content_t&)content_;
     }

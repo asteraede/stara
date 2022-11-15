@@ -184,6 +184,10 @@ protected:
         run_ = &derives::all_request_run;
         return err;
     }
+    virtual int request_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
     
     /// ...method_run
     virtual int method_run(int argc, char_t** argv, char_t** env) {
@@ -213,6 +217,10 @@ protected:
     virtual int set_method_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         run_ = &derives::all_method_run;
+        return err;
+    }
+    virtual int method_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
         return err;
     }
     
@@ -246,6 +254,10 @@ protected:
         run_ = &derives::all_parameter_run;
         return err;
     }
+    virtual int parameter_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
     
     /// ...option...
     virtual int on_set_request_option
@@ -272,11 +284,15 @@ protected:
             if (!(err = on_set_request_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_request_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_request_run(argc, argv, env))) {
+                        if (!(err = request_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_request_run(argc, argv, env))) {
+                if (!(err = request_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;
@@ -312,11 +328,15 @@ protected:
             if (!(err = on_set_method_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_method_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_method_run(argc, argv, env))) {
+                        if (!(err = method_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_method_run(argc, argv, env))) {
+                if (!(err = method_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;
@@ -352,11 +372,15 @@ protected:
             if (!(err = on_set_parameter_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_parameter_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_parameter_run(argc, argv, env))) {
+                        if (!(err = parameter_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_parameter_run(argc, argv, env))) {
+                if (!(err = parameter_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;

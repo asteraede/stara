@@ -97,6 +97,7 @@ protected:
     typedef xos::protocol::xttp::message::part query_string_t;
     typedef xos::protocol::http::form::content form_content_t;
     typedef xos::protocol::http::form::field form_field_t;
+    typedef typename form_field_t::part_t form_field_part_t;
     typedef xos::protocol::http::form::fields form_fields_t;
     typedef xos::protocol::http::url::encoded::readert<reader_t> url_encoded_reader_t;
     typedef xos::protocol::http::url::encoded::form::content::type url_encoded_form_content_type_t;
@@ -1453,6 +1454,36 @@ protected:
         const form_field_t* field = 0;
         field = query_.prev(i);
         return field;
+    }
+
+    /// ...query_field_named
+    const form_field_t* first_query_field_named(const char_t* named) const {    
+        const form_field_t* field = 0;
+        form_fields_t::const_iterator_t i;
+        
+        if ((field = query_.first(i))) {
+            do {
+                const form_field_part_t& name = field->name();
+                if (!(name.compare(named))) {
+                    break;
+                }
+            } while ((field = query_.next(i)));
+        }
+        return field;
+    }
+    const char_t* first_query_field_named_chars(const char_t* named) const {
+        size_t length = 0;
+        return first_query_field_named_chars(length, named);
+    }
+    const char_t* first_query_field_named_chars(size_t& length, const char_t* named) const {
+        const form_field_t* field = 0;
+        const char_t* chars = 0;
+        length = 0;
+        if ((field = first_query_field_named(named))) {
+            const form_field_part_t& value = field->value();
+            chars = value.has_chars(length);
+        }
+        return chars;
     }
 
 protected:

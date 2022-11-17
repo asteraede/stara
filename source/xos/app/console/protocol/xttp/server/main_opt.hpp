@@ -77,6 +77,15 @@
     XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_STATUS_NOT_FOUND_OPTION \
 
 ///////////////////////////////////////////////////////////////////////
+#define XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_LOGGING_OPTIONS_CHARS \
+   XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_OPTIONS_CHARS_EXTEND \
+   XOS_APP_CONSOLE_PROTOCOL_XTTP_BASE_MAIN_LOGGING_OPTIONS_CHARS
+
+#define XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_LOGGING_OPTIONS_OPTIONS \
+   XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_OPTIONS_OPTIONS_EXTEND \
+   XOS_APP_CONSOLE_PROTOCOL_XTTP_BASE_MAIN_LOGGING_OPTIONS_OPTIONS
+
+///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_OPTIONS_CHARS \
    XOS_APP_CONSOLE_PROTOCOL_XTTP_SERVER_MAIN_OPTIONS_CHARS_EXTEND \
    XOS_APP_CONSOLE_PROTOCOL_XTTP_BASE_MAIN_OPTIONS_CHARS
@@ -172,6 +181,10 @@ protected:
         run_ = &derives::all_respond_run;
         return err;
     }
+    virtual int respond_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
 
     /// ...status_run
     virtual int status_run(int argc, char_t** argv, char_t** env) {
@@ -203,6 +216,10 @@ protected:
         run_ = &derives::all_status_run;
         return err;
     }
+    virtual int status_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
 
     /// ...option...
     virtual int on_set_respond_option
@@ -229,11 +246,15 @@ protected:
             if (!(err = on_set_respond_option(optarg, optind, argc, argv, env))) {
                 if (!(err = on_respond_option_set(optarg, optind, argc, argv, env))) {
                     if (!(err = set_respond_run(argc, argv, env))) {
+                        if (!(err = respond_run_set(argc, argv, env))) {
+                        }
                     }
                 }
             }
         } else {
             if (!(err = set_respond_run(argc, argv, env))) {
+                if (!(err = respond_run_set(argc, argv, env))) {
+                }
             }
         }
         return err;
@@ -268,6 +289,8 @@ protected:
         if (!(err = on_set_status_ok_option(optarg, optind, argc, argv, env))) {
             if (!(err = on_status_ok_option_set(optarg, optind, argc, argv, env))) {
                 if (!(err = set_status_run(argc, argv, env))) {
+                    if (!(err = status_run_set(argc, argv, env))) {
+                    }
                 }
             }
         }
@@ -303,6 +326,8 @@ protected:
         if (!(err = on_set_status_not_found_option(optarg, optind, argc, argv, env))) {
             if (!(err = on_status_not_found_option_set(optarg, optind, argc, argv, env))) {
                 if (!(err = set_status_run(argc, argv, env))) {
+                    if (!(err = status_run_set(argc, argv, env))) {
+                    }
                 }
             }
         }

@@ -393,6 +393,23 @@ protected:
     virtual response_status_t& response_status() const {
         return (response_status_t&)status_;
     }
+    virtual content_t& set_response_content(const string_t& to) {
+        size_t to_length = 0;
+        const char_t* to_chars = to.has_chars(to_length);
+        return set_response_content(to_chars, to_length);
+    }
+    virtual content_t& set_response_content(const char_t* to, size_t length) {
+        content_t& content = this->content();
+        if ((to) && (length)) {
+            response_line_t& response_line = this->response_line();
+            headers_t& headers = this->response_headers();
+            response_t& response = this->response();
+            headers.set_content_length(length);
+            content.set(to, length);
+            response.set(response_line, headers, content);
+        }
+        return content;
+    }
 
     /// ...content
     virtual content_t& request_content() const {

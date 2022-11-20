@@ -305,6 +305,10 @@ public:
         this->combine();
         return content_type;
     }
+    virtual const part_t& content_type() const {
+        const part_t& part = headers_.content_type();
+        return part;
+    }
     virtual const char_t* content_type_chars() const {
         const char_t* chars = headers_.content_type_chars();
         return chars;

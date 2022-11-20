@@ -572,11 +572,50 @@ public:
     }
 
     /// ...content_encoding...
+    virtual field_t* add_content_encoding_field(const string_t& value) {
+        string_t name(content_encoding_name_chars());
+        const char_t *chars = 0; size_t length = 0;
+        if ((chars = name.has_chars(length))) {
+            field_t* f = 0;
+            if ((f = add_field(name, value))) {
+                content_encoding_field_ = f;
+                return f;
+            }
+        }
+        return 0;
+    }
+    virtual field_t* add_content_encoding_field(const char_t* chars) {
+        string_t value(chars);
+        return add_content_encoding_field(value);
+    }
     virtual const field* content_encoding_field() const {
         return content_encoding_field_;
     }
+    virtual part& set_content_encoding(const string_t& to) {
+        const field* f = 0;
+        if (!(f = set_field_value(content_encoding_field_, to))) {
+            f = add_content_encoding_field(to);
+        }
+        content_encoding_.set(to);
+        combine();
+        return content_encoding_;
+    }
+    virtual part& set_content_encoding(const char_t* chars, size_t length) {
+        string_t to(chars, length);
+        return set_content_encoding(to);
+    }
+    virtual part& set_content_encoding(const char_t* chars) {
+        string_t to(chars);
+        return set_content_encoding(to);
+    }
     virtual const part& content_encoding() const {
         return content_encoding_;
+    }
+    virtual const char_t* content_encoding_chars() const {
+        return content_encoding_.has_chars();
+    }
+    virtual const char_t* content_encoding_chars(size_t& length) const {
+        return content_encoding_.has_chars(length);
     }
 
     /// content_..._name_chars

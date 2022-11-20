@@ -138,7 +138,8 @@ protected:
         int err = 0;
         const char_t* chars = 0; size_t length = 0;
         if ((chars = rq.has_chars(length)) && (!chars[length])) {
-            this->errlln(__LOCATION__, "...request = \"", chars, "\"", null);
+            //this->errlln(__LOCATION__, "...request = \"", chars, "\"", null);
+            LOGGER_IS_LOGGED_INFO("...request[" << unsigned_to_string(length) << "] = \"" << chars << "\"");
             if ((length = rq.content_length())) {
                 content_t& content = this->request_content();
                 size_t content_length = length;
@@ -148,7 +149,8 @@ protected:
                         content.append(&c, 1);
                     }
                 }
-                this->errlln(__LOCATION__, "...content[", unsigned_to_string(content_length).chars(), "] = \"", content.chars(), "\"", null);
+                //this->errlln(__LOCATION__, "...content[", unsigned_to_string(content_length).chars(), "] = \"", content.chars(), "\"", null);
+                LOGGER_IS_LOGGED_INFO("...content[" << unsigned_to_string(content_length) << "] = \"" << content.chars() << "\"");
             }
         }
         return err;
@@ -217,6 +219,18 @@ protected:
     }
     virtual int after_process_response_to(writer_t& writer, response_t& response, request_t& request, reader_t& reader, int argc, char_t** argv, char** env) {
         int err = 0;
+        const char_t* chars = 0; size_t length = 0;
+        if ((chars = response.has_chars(length)) && (!chars[length])) {
+            //this->errlln(__LOCATION__, "...response = \"", chars, "\"", null);
+            LOGGER_IS_LOGGED_INFO("...response[" << unsigned_to_string(length) << "] = \"" << chars << "\"");
+            if ((length = response.content_length())) {
+                content_t& content = this->content();
+                if ((chars = content.has_chars(length)) && (!chars[length])) {
+                    //this->errlln(__LOCATION__, "...content[", unsigned_to_string(length).chars(), "] = \"", chars, "\"", null);
+                    LOGGER_IS_LOGGED_INFO("...content[" << unsigned_to_string(length) << "] = \"" << chars << "\"");
+                }
+            }
+        }
         return err;
     }
     virtual int all_process_response_to(writer_t& writer, response_t& response, request_t& request, reader_t& reader, int argc, char_t** argv, char** env) {

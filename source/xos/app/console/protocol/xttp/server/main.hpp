@@ -78,6 +78,7 @@ protected:
     typedef typename extends::content_length_header_t content_length_header_t;
 
     typedef typename extends::content_t content_t;
+    typedef typename extends::content_type_t content_type_t;
     typedef typename extends::text_content_type_t text_content_type_t;
     typedef typename extends::json_content_type_t json_content_type_t;
     typedef typename extends::text_content_t text_content_t;
@@ -392,6 +393,22 @@ protected:
     }
     virtual response_status_t& response_status() const {
         return (response_status_t&)status_;
+    }
+    virtual const content_type_t& set_response_content_type(const string_t& to) {
+        size_t to_length = 0;
+        const char_t* to_chars = to.has_chars(to_length);
+        return set_response_content_type(to_chars, to_length);
+    }
+    virtual const content_type_t& set_response_content_type(const char_t* to, size_t length) {
+        headers_t& headers = this->response_headers();
+        if ((to) && (length)) {
+            response_line_t& response_line = this->response_line();
+            response_t& response = this->response();
+            content_t& content = this->content();
+            headers.set_content_type(to, length);
+            response.set(response_line, headers, content);
+        }
+        return headers.content_type();
     }
     virtual content_t& set_response_content(const string_t& to) {
         size_t to_length = 0;

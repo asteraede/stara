@@ -99,12 +99,15 @@ $${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main_opt.hpp 
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main.hpp \
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/http/server/main_opt.hpp \
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/http/server/main.hpp \
+\
+$${STARA_SRC}/xos/app/console/http/client/main_opt.hpp \
+$${STARA_SRC}/xos/app/console/http/client/main.hpp \
 
 # http SOURCES
 #
 http_SOURCES += \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main_opt.cpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main.cpp \
+$${STARA_SRC}/xos/app/console/http/client/main_opt.cpp \
+$${STARA_SRC}/xos/app/console/http/client/main.cpp \
 
 ########################################################################
 # http FRAMEWORKS

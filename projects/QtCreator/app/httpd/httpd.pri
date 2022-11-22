@@ -92,12 +92,22 @@ $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/client/main_opt.hpp 
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/client/main.hpp \
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main_opt.hpp \
 $${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main.hpp \
+\
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/base/main_opt.hpp \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/base/main.hpp \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main_opt.hpp \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/client/main.hpp \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/server/main_opt.hpp \
+$${STARA_SRC}/xos/app/console/network/sockets/protocol/http/server/main.hpp \
+\
+$${STARA_SRC}/xos/app/console/http/server/main_opt.hpp \
+$${STARA_SRC}/xos/app/console/http/server/main.hpp \
 
 # httpd SOURCES
 #
 httpd_SOURCES += \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main_opt.cpp \
-$${STARA_SRC}/xos/app/console/network/sockets/protocol/xttp/server/main.cpp \
+$${STARA_SRC}/xos/app/console/http/server/main_opt.cpp \
+$${STARA_SRC}/xos/app/console/http/server/main.cpp \
 
 ########################################################################
 # httpd FRAMEWORKS

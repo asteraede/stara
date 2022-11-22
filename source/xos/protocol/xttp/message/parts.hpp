@@ -16,7 +16,7 @@
 ///   File: parts.hpp
 ///
 /// Author: $author$
-///   Date: 3/13/2020, 5/8/2021
+///   Date: 3/13/2020, 11/21/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_PROTOCOL_XTTP_MESSAGE_PARTS_HPP
 #define XOS_PROTOCOL_XTTP_MESSAGE_PARTS_HPP
@@ -92,6 +92,12 @@ public:
         } else {
             clear_content();
         }
+        return *this;
+    }
+    virtual derives& set(const line_t& line, const headers_t& headers) {
+        set_line(line);
+        set_headers(headers);
+        clear_content();
         return *this;
     }
     virtual derives& set(const derives& to) {
@@ -257,7 +263,7 @@ public:
         return *this;
     }
 
-    /// line / headers / content
+    /// ...line
     virtual line_t& set_line(const line_t& to) {
         line_.set(to);
         combine();
@@ -266,6 +272,8 @@ public:
     virtual const line_t& line() const {
         return line_;
     }
+
+    /// ...headers
     virtual headers_t& set_headers(const headers_t& to) {
         headers_.set(to);
         combine();
@@ -274,12 +282,17 @@ public:
     virtual const headers_t& headers() const {
         return headers_;
     }
-    virtual const content_t* content() const {
-        return content_;
-    }
+
+    /// ...content
     virtual const content_t* set_content(const char_t* to, size_t length) {
         content_ = &this_content_;
         this_content_.assign(to, length);
+        this->combine();
+        return content_;
+    }
+    virtual const content_t* set_content(const char_t* to) {
+        content_ = &this_content_;
+        this_content_.assign(to);
         this->combine();
         return content_;
     }
@@ -295,13 +308,32 @@ public:
         this->combine();
         return content_;
     }
-    virtual part_t set_content_type(const char_t* to, size_t length) {
-        part_t content_type(headers_.set_content_type(to, length));
+    virtual const content_t* content() const {
+        return content_;
+    }
+    virtual const char_t* content_chars() const {
+        const char_t* chars = 0;
+        if (content_) {
+            chars = content_->has_chars();
+        }
+        return chars;
+    }
+    virtual const char_t* content_chars(size_t& length) const {
+        const char_t* chars = 0;
+        if (content_) {
+            chars = content_->has_chars(length);
+        }
+        return chars;
+    }
+
+    /// ...content_type...
+    virtual part_t& set_content_type(const char_t* to, size_t length) {
+        part_t& content_type = headers_.set_content_type(to, length);
         this->combine();
         return content_type;
     }
-    virtual part_t set_content_type(const string_t& to) {
-        part_t content_type(headers_.set_content_type(to));
+    virtual part_t& set_content_type(const string_t& to) {
+        part_t content_type = headers_.set_content_type(to);
         this->combine();
         return content_type;
     }
@@ -317,6 +349,8 @@ public:
         const char_t* chars = headers_.content_type_chars(length);
         return chars;
     }
+
+    /// ...content_length...
     virtual size_t set_content_length(size_t to) {
         size_t content_length = headers_.set_content_length(to);
         this->combine();
@@ -324,20 +358,6 @@ public:
     }
     virtual size_t content_length() const {
         return headers_.content_length();
-    }
-    virtual const char_t* content_chars() const {
-        const char_t* chars = 0;
-        if (content_) {
-            chars = content_->has_chars();
-        }
-        return chars;
-    }
-    virtual const char_t* content_chars(size_t& length) const {
-        const char_t* chars = 0;
-        if (content_) {
-            chars = content_->has_chars(length);
-        }
-        return chars;
     }
 
 protected:

@@ -24,6 +24,84 @@
 #include "xos/app/console/network/sockets/protocol/http/client/main.hpp"
 #include "xos/app/console/home/theater/sony/audio/control/base/main.hpp"
 
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPT "previous"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTARG ""
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTUSE "play previous"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTVAL_S "E"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTVAL_C 'E'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPT "next"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTARG ""
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTUSE "play next"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTVAL_S "X"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTVAL_C 'X'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPT "start-play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTARG ""
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTUSE "start play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTVAL_S "S"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTVAL_C 'S'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPT "stop-play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTARG ""
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTUSE "stop play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_S "T"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_C 'T'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPT "pause-play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTARG ""
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTUSE "pause play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_S "P"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_C 'P'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPT "resume-play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG ""
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTUSE "resume play"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_S "R"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_C 'R'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_C}, \
+
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPT "volume"
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTARG_RESULT 0
@@ -78,12 +156,24 @@
 
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_ON_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_OFF_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_OPTVAL_S \
 
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_ON_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_OFF_OPTION \
@@ -170,6 +260,180 @@ protected:
             err = extends::run(argc, argv, env);
         }
         return err;
+    }
+
+    /// ...play_previous_option...
+    virtual int on_set_play_previous_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_play_previous_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_play_previous_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_play_previous_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_play_previous_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* play_previous_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTARG;
+        return chars;
+    }
+
+    /// ...play_next_option...
+    virtual int on_set_play_next_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_play_next_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_play_next_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_play_next_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_play_next_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* play_next_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTARG;
+        return chars;
+    }
+
+    /// ...start_play_option...
+    virtual int on_set_start_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_start_play_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_start_play_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_start_play_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_start_play_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* start_play_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTARG;
+        return chars;
+    }
+
+    /// ...stop_play_option...
+    virtual int on_set_stop_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_stop_play_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_stop_play_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_stop_play_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_stop_play_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* stop_play_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTARG;
+        return chars;
+    }
+
+    /// ...pause_play_option...
+    virtual int on_set_pause_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_pause_play_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_pause_play_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_pause_play_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_pause_play_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* pause_play_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTARG;
+        return chars;
+    }
+
+    /// ...resume_play_option...
+    virtual int on_set_resume_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_resume_play_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_resume_play_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_resume_play_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_resume_play_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* resume_play_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG;
+        return chars;
     }
 
     /// ...volume_option...
@@ -357,6 +621,26 @@ protected:
         int err = 0;
         switch(optval) {
 
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTVAL_C:
+            err = this->on_play_previous_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTVAL_C:
+            err = this->on_play_next_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTVAL_C:
+            err = this->on_start_play_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_C:
+            err = this->on_stop_play_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_C:
+            err = this->on_pause_play_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_C:
+            err = this->on_resume_play_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+
         case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTVAL_C:
             err = this->on_volume_option(optval, optarg, optname, optind, argc, argv, env);
             break;
@@ -379,6 +663,26 @@ protected:
     virtual const char_t* option_usage(const char_t*& optarg, const struct option* longopt) {
         const char_t* chars = "";
         switch(longopt->val) {
+
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_PREVIOUS_OPTVAL_C:
+            chars = this->play_previous_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PLAY_NEXT_OPTVAL_C:
+            chars = this->play_next_option_usage(optarg, longopt);
+            break;
+
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_START_PLAY_OPTVAL_C:
+            chars = this->start_play_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_C:
+            chars = this->stop_play_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_C:
+            chars = this->pause_play_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_C:
+            chars = this->resume_play_option_usage(optarg, longopt);
+            break;
 
         case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTVAL_C:
             chars = this->volume_option_usage(optarg, longopt);

@@ -58,34 +58,40 @@ public:
     maint()
     : run_(0), port_(port_number),
       
-      previous_path_("/sony/avContent"),
+      system_path_("/sony/system"), audio_path_("/sony/audio"), avContent_path_("/sony/avContent"),
+
       previous_begin_("{\"method\": \"setPlayPreviousContent\", \"id\": 73, \"params\": [{\"output\": \""),
       previous_end_("\"}], \"version\": \"1.0\"}"),
       previous_params_(""),
       
-      next_path_("/sony/avContent"),
       next_begin_("{\"method\": \"setPlayNextContent\", \"id\": 73, \"params\": [{\"output\": \""),
       next_end_("\"}], \"version\": \"1.0\"}"),
       next_params_(""),
       
-      stop_path_("/sony/avContent"),
+      start_begin_("{\"method\": \"setPlayContent\", \"id\": 73, \"params\": [{\"output\": \"\", \"resume\": "),
+      start_end_("}], \"version\": \"1.2\"}"),
+      start_params_("true"),
+      
       stop_begin_("{\"method\": \"stopPlayingContent\", \"id\": 73, \"params\": [{\"output\": \""),
       stop_end_("\"}], \"version\": \"1.1\"}"),
       stop_params_(""),
       
-      resume_path_("/sony/avContent"),
+      pause_begin_("{\"method\": \"pausePlayingContent\", \"id\": 73, \"params\": [{\"output\": \""),
+      pause_end_("\"}], \"version\": \"1.1\"}"),
+      pause_params_(""),
+
       resume_begin_("{\"method\": \"setPlayContent\", \"id\": 73, \"params\": [{\"output\": \"\", \"resume\": "),
       resume_end_("}], \"version\": \"1.2\"}"),
       resume_params_("true"),
       
-      replay_path_("/sony/avContent"),
       replay_begin_("{\"method\": \"setPlayContent\", \"id\": 73, \"params\": [{\"repeatType\": \""),
       replay_end_("\"}], \"version\": \"1.2\"}"),
       replay_params_("on"),
+      play_path_(avContent_path_),
       
       volume_level_(10), volume_value_(volume_level_), volume_param_("volume", volume_value_), 
       volume_object_(&volume_param_, null), volume_params_(&volume_object_, null),
-      volume_path_("/sony/audio"),
+      volume_path_(audio_path_),
       volume_level_begin_("{\"method\": \"getVolumeInformation\", \"id\": 73, \"params\": [{\"output\": \"\"}]"),
       volume_begin_("{\"method\": \"setAudioVolume\", \"id\": 73, \"params\": "),
       volume_end_(", \"version\": \"1.1\"}"),
@@ -93,7 +99,7 @@ public:
       power_status_off_("off"), power_status_on_("active"), 
       power_status_(power_status_on_), power_value_(power_status_), power_param_("status", power_value_), 
       power_object_(&power_param_, null), power_params_(&power_object_, null),
-      power_path_("/sony/system"),
+      power_path_(system_path_),
       power_status_begin_("{\"method\": \"getPowerStatus\", \"id\": 73, \"params\": []"),
       power_begin_("{\"method\": \"setPowerStatus\", \"id\": 73, \"params\": "),
       power_end_(", \"version\": \"1.1\"}") {
@@ -129,6 +135,50 @@ protected:
         return err;
     }
 
+    /// ...play...
+    virtual string_t& set_play_previous() {
+        play_.assign(previous_begin_);
+        play_.append(previous_params_);
+        play_.append(previous_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& set_play_next() {
+        play_.assign(next_begin_);
+        play_.append(next_params_);
+        play_.append(next_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& set_start_play() {
+        play_.assign(start_begin_);
+        play_.append(start_params_);
+        play_.append(start_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& set_stop_play() {
+        play_.assign(stop_begin_);
+        play_.append(stop_params_);
+        play_.append(stop_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& set_pause_play() {
+        play_.assign(pause_begin_);
+        play_.append(pause_params_);
+        play_.append(pause_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& set_resume_play() {
+        play_.assign(resume_begin_);
+        play_.append(resume_params_);
+        play_.append(resume_end_);
+        play_.appendln();
+        return play_;
+    }
+
     /// ...volume...
     virtual string_t& set_volume_level(unsigned to) {
         volume_level_ = to;
@@ -142,11 +192,13 @@ protected:
         volume_.assign(volume_begin_);
         volume_.append(volume_params_);
         volume_.append(volume_end_);
+        volume_.appendln();
         return volume_;
     }
     virtual string_t& get_volume() {
         volume_.assign(volume_level_begin_);
         volume_.append(volume_end_);
+        volume_.appendln();
         return volume_;
     }
 
@@ -169,11 +221,13 @@ protected:
         power_.assign(power_begin_);
         power_.append(power_params_);
         power_.append(power_end_);
+        power_.appendln();
         return power_;
     }
     virtual string_t& get_power() {
         power_.assign(power_status_begin_);
         power_.append(power_end_);
+        power_.appendln();
         return power_;
     }
 
@@ -195,11 +249,16 @@ protected:
 protected:
     short port_;
 
-    string_t previous_path_, previous_begin_, previous_end_, previous_params_, previous_;
-    string_t next_path_, next_begin_, next_end_, next_params_, next_;
-    string_t stop_path_, stop_begin_, stop_end_, stop_params_, stop_;
-    string_t resume_path_, resume_begin_, resume_end_, resume_params_, resume_;
-    string_t replay_path_, replay_begin_, replay_end_, replay_params_, replay_;
+    string_t system_path_, audio_path_, avContent_path_;
+
+    string_t previous_begin_, previous_end_, previous_params_;
+    string_t next_begin_, next_end_, next_params_;
+    string_t start_begin_, start_end_, start_params_;
+    string_t stop_begin_, stop_end_, stop_params_;
+    string_t pause_begin_, pause_end_, pause_params_;
+    string_t resume_begin_, resume_end_, resume_params_;
+    string_t replay_begin_, replay_end_, replay_params_;
+    string_t play_path_, play_;
 
     unsigned volume_level_; json_node_t volume_value_, volume_param_;
     json_object_t volume_object_; json_array_t volume_params_;

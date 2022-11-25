@@ -90,6 +90,78 @@ protected:
         return err;
     }
 
+    /// ...play...option...
+    virtual int on_set_play_previous_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_play_previous();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_play_next_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_play_next();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_start_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_start_play();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_stop_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_stop_play();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_pause_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_pause_play();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_resume_play_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_resume_play();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_request_set_play
+    (request_t& request, const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request.set_method(this->request_method_post());
+        request.set_path(this->play_path_);
+        request.set_content_type(this->content_type_json());
+        request.set_content_length(this->play_.length());
+        request.set_content(this->play_);
+        return err;
+    }
+
     /// ...volume_option...
     virtual int on_get_volume_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {

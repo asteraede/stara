@@ -102,6 +102,44 @@
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTARG_RESULT, \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_C}, \
 
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPT "replay"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_ALL "all"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_FOLDER "folder"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_OFF "off"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG "[{ " \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_ALL " | " \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_FOLDER " | " \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_OFF " | ...}]"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTUSE "replay mode"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTVAL_S "Y::"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTVAL_C 'Y'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPT "shuffle"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_ALL "all"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_FOLDER "folder"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_OFF "off"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG "[{ " \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_ALL " | " \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_FOLDER " | " \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_OFF " | ...}]"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTUSE "shuffle"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTVAL_S "U::"
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTVAL_C 'U'
+#define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTION \
+   {XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTVAL_C}, \
+
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPT "volume"
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTARG_RESULT 0
@@ -162,6 +200,8 @@
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTVAL_S \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_ON_OPTVAL_S \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_OFF_OPTVAL_S \
@@ -174,6 +214,8 @@
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_STOP_PLAY_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_PAUSE_PLAY_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTION \
+    XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_ON_OPTION \
     XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_POWER_OFF_OPTION \
@@ -436,6 +478,200 @@ protected:
         return chars;
     }
 
+    /// ...replay_option...
+    virtual int on_get_replay_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_get_replay_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_replay_all_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_replay_off_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_replay_folder_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_replay_mode_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_replay_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            string_t arg(optarg);
+            int unequal = 0;
+            if (!(unequal = arg.compare(XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_ALL))) {
+                if (!(err = on_set_replay_all_option(optarg, optind, argc, argv, env))) {
+                } else {
+                }
+            } else {
+                if (!(unequal = arg.compare(XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_FOLDER))) {
+                    if (!(err = on_set_replay_folder_option(optarg, optind, argc, argv, env))) {
+                    } else {
+                    }
+                } else {
+                    if (!(unequal = arg.compare(XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG_OFF))) {
+                        if (!(err = on_set_replay_off_option(optarg, optind, argc, argv, env))) {
+                        } else {
+                        }
+                    } else {
+                        if (!(err = on_set_replay_mode_option(optarg, optind, argc, argv, env))) {
+                        } else {
+                        }
+                    }
+                }
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual int on_replay_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_replay_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            if (!(err = on_set_replay_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_replay_option_set(optarg, optind, argc, argv, env))) {
+                } else {
+                }
+            } else {
+            }
+        } else {
+            if (!(err = on_get_replay_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_get_replay_option_set(optarg, optind, argc, argv, env))) {
+                } else {
+                }
+            } else {
+            }
+        }
+        return err;
+    }
+    virtual const char_t* replay_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTARG;
+        return chars;
+    }
+
+    /// ...shuffle_option...
+    virtual int on_get_shuffle_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_get_shuffle_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_shuffle_all_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_shuffle_folder_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_shuffle_off_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_shuffle_mode_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_set_shuffle_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            string_t arg(optarg);
+            int unequal = 0;
+            if (!(unequal = arg.compare(XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_ALL))) {
+                if (!(err = on_set_shuffle_all_option(optarg, optind, argc, argv, env))) {
+                } else {
+                }
+            } else {
+                if (!(unequal = arg.compare(XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_FOLDER))) {
+                    if (!(err = on_set_shuffle_folder_option(optarg, optind, argc, argv, env))) {
+                    } else {
+                    }
+                } else {
+                    if (!(unequal = arg.compare(XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG_OFF))) {
+                        if (!(err = on_set_shuffle_off_option(optarg, optind, argc, argv, env))) {
+                        } else {
+                        }
+                    } else {
+                        if (!(err = on_set_shuffle_mode_option(optarg, optind, argc, argv, env))) {
+                        } else {
+                        }
+                    }
+                }
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual int on_shuffle_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_shuffle_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            if (!(err = on_set_shuffle_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_shuffle_option_set(optarg, optind, argc, argv, env))) {
+                } else {
+                }
+            } else {
+            }
+        } else {
+            if (!(err = on_get_shuffle_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_get_shuffle_option_set(optarg, optind, argc, argv, env))) {
+                } else {
+                }
+            } else {
+            }
+        }
+        return err;
+    }
+    virtual const char_t* shuffle_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTUSE;
+        optarg = XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTARG;
+        return chars;
+    }
+
     /// ...volume_option...
     virtual int on_get_volume_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
@@ -641,6 +877,13 @@ protected:
             err = this->on_resume_play_option(optval, optarg, optname, optind, argc, argv, env);
             break;
 
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTVAL_C:
+            err = this->on_replay_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTVAL_C:
+            err = this->on_shuffle_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+
         case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTVAL_C:
             err = this->on_volume_option(optval, optarg, optname, optind, argc, argv, env);
             break;
@@ -682,6 +925,13 @@ protected:
             break;
         case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_RESUME_PLAY_OPTVAL_C:
             chars = this->resume_play_option_usage(optarg, longopt);
+            break;
+
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_REPLAY_OPTVAL_C:
+            chars = this->replay_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_SHUFFLE_OPTVAL_C:
+            chars = this->shuffle_option_usage(optarg, longopt);
             break;
 
         case XOS_APP_CONSOLE_HOME_THEATER_SONY_AUDIO_CONTROL_CLIENT_MAIN_VOLUME_OPTVAL_C:

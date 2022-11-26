@@ -162,6 +162,118 @@ protected:
         return err;
     }
 
+    /// ...replay...option...
+    virtual int on_get_replay_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->get_replay();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_replay_all_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_replay_all();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_replay_folder_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_replay_folder();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_replay_off_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_replay_off();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_replay_mode_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        if ((optarg) && (optarg[0])) {
+            this->set_replay_mode(optarg);
+        } else {
+            this->set_replay_all();
+        }
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+
+    /// ...shuffle...option...
+    virtual int on_get_shuffle_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->get_shuffle();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_shuffle_all_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_shuffle_all();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_shuffle_folder_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_shuffle_folder();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_shuffle_off_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        this->set_shuffle_off();
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_set_shuffle_mode_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        request_t& request = this->request();
+        if ((optarg) && (optarg[0])) {
+            this->set_shuffle_mode(optarg);
+        } else {
+            this->set_shuffle_all();
+        }
+        if (!(err = on_request_set_play(request, optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+
     /// ...volume_option...
     virtual int on_get_volume_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {

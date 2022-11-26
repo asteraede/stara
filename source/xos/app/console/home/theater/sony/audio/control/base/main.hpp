@@ -84,9 +84,17 @@ public:
       resume_end_("}], \"version\": \"1.2\"}"),
       resume_params_("true"),
       
-      replay_begin_("{\"method\": \"setPlayContent\", \"id\": 73, \"params\": [{\"repeatType\": \""),
-      replay_end_("\"}], \"version\": \"1.2\"}"),
-      replay_params_("on"),
+      get_replay_begin_("{\"method\": \"getPlayingContentInfo\", \"id\": 73, \"params\": [{\"output\": \""),
+      get_replay_end_("\"}], \"version\": \"1.2\"}"),
+      replay_begin_("{\"method\": \"setPlaybackModeSettings\", \"id\": 73, \"params\": [{\"settings\": [{\"target\": \"repeatType\", \"value\": \""),
+      replay_end_("\"}]}], \"version\": \"1.0\"}"),
+      replay_all_("all"), replay_folder_("folder"), replay_off_("off"), replay_params_(replay_all_),
+      
+      get_shuffle_begin_("{\"method\": \"getPlaybackModeSettings\", \"id\": 73, \"params\": [{\"target\": \"shuffleType\", \"uri\": \""),
+      get_shuffle_end_("extInput:bd-dvd\"}], \"version\": \"1.0\"}"),
+      shuffle_begin_("{\"method\": \"setPlaybackModeSettings\", \"id\": 73, \"params\": [{\"settings\": [{\"target\": \"shuffleType\", \"value\": \""),
+      shuffle_end_("\"}]}], \"version\": \"1.0\"}"),
+      shuffle_all_("all"), shuffle_folder_("folder"), shuffle_off_("off"), shuffle_params_(shuffle_all_),
       play_path_(avContent_path_),
       
       volume_level_(10), volume_value_(volume_level_), volume_param_("volume", volume_value_), 
@@ -179,6 +187,72 @@ protected:
         return play_;
     }
 
+    /// ...replay...
+    virtual string_t& set_replay_all() {
+        const char_t* to = replay_all_.has_chars();
+        return set_replay_mode(to);
+    }
+    virtual string_t& set_replay_folder() {
+        const char_t* to = replay_folder_.has_chars();
+        return set_replay_mode(to);
+    }
+    virtual string_t& set_replay_off() {
+        const char_t* to = replay_off_.has_chars();
+        return set_replay_mode(to);
+    }
+    virtual string_t& set_replay_mode(const char_t* to) {
+        if ((to) && (to[0])) {
+            replay_params_.assign(to);
+        }
+        return set_replay();
+    }
+    virtual string_t& set_replay() {
+        play_.assign(replay_begin_);
+        play_.append(replay_params_);
+        play_.append(replay_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& get_replay() {
+        play_.assign(get_replay_begin_);
+        play_.append(get_replay_end_);
+        play_.appendln();
+        return play_;
+    }
+
+    /// ...shuffle...
+    virtual string_t& set_shuffle_all() {
+        const char_t* to = shuffle_all_.has_chars();
+        return set_shuffle_mode(to);
+    }
+    virtual string_t& set_shuffle_folder() {
+        const char_t* to = shuffle_folder_.has_chars();
+        return set_shuffle_mode(to);
+    }
+    virtual string_t& set_shuffle_off() {
+        const char_t* to = shuffle_off_.has_chars();
+        return set_shuffle_mode(to);
+    }
+    virtual string_t& set_shuffle_mode(const char_t* to) {
+        if ((to) && (to[0])) {
+            shuffle_params_.assign(to);
+        }
+        return set_shuffle();
+    }
+    virtual string_t& set_shuffle() {
+        play_.assign(shuffle_begin_);
+        play_.append(shuffle_params_);
+        play_.append(shuffle_end_);
+        play_.appendln();
+        return play_;
+    }
+    virtual string_t& get_shuffle() {
+        play_.assign(get_shuffle_begin_);
+        play_.append(get_shuffle_end_);
+        play_.appendln();
+        return play_;
+    }
+
     /// ...volume...
     virtual string_t& set_volume_level(unsigned to) {
         volume_level_ = to;
@@ -257,7 +331,8 @@ protected:
     string_t stop_begin_, stop_end_, stop_params_;
     string_t pause_begin_, pause_end_, pause_params_;
     string_t resume_begin_, resume_end_, resume_params_;
-    string_t replay_begin_, replay_end_, replay_params_;
+    string_t get_replay_begin_, get_replay_end_, replay_begin_, replay_end_, replay_all_, replay_folder_, replay_off_, replay_params_;
+    string_t get_shuffle_begin_, get_shuffle_end_, shuffle_begin_, shuffle_end_, shuffle_all_, shuffle_folder_, shuffle_off_, shuffle_params_;
     string_t play_path_, play_;
 
     unsigned volume_level_; json_node_t volume_value_, volume_param_;
